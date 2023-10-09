@@ -3,10 +3,6 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 
-const links = [
-  { href: "/", label: "🏠 Home" }
-]
-
 export default async function AuthLayout({
   children,
 }: {
@@ -22,15 +18,25 @@ export default async function AuthLayout({
   }
 
   const userId = session.user.id;
-  const { data: { username } } = await supabase.from("profiles")
-    .select()
+
+  const { data, error } = await supabase.from("profiles")
+    .select("username")
     .eq("id", userId)
     .single();
 
+  if (error) {
+    throw new Error(error.message);
+  }
+
   return (
     <>
-      <Navbar links={links} username={username} logout={true} />
+      <Navbar username={data.username} logout={true} />
       {children}
+      <footer className="flex justify-center items-center py-4 h-12">
+        <p>
+          Khurram Ali - Stick-It! - &copy; 2023
+        </p>
+      </footer>
     </>
   )
 }

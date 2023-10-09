@@ -1,24 +1,45 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xs: "480px",
+      sm: "576px",
+      md: "960px",
+      lg: "1440px",
+    },
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "body-texture":
+          "url('https://www.transparenttextures.com/patterns/vintage-speckles.png')",
       },
       colors: {
-        "shade-one": "#dbd8e3",
-        "shade-two": "#5c5470",
-        "shade-three": "#352f44",
-        "shade-four": "#2a2438",
-        whitesmoke: "#F5F5F5",
+        "light-one": "#fafafa",
+        "light-two": "#e4e5f1",
+        "light-three": "#d2d3db",
+        "light-four": "#9394a5",
+        "light-five": "#484b6a",
+        "dark-one": "#161722",
+        "dark-two": "#25273c",
+        "dark-three": "#cacde8",
+        "dark-four": "#e4e5f1",
+        "dark-five": "#777a92",
+        "purple-one": "#dbd8e3",
+        "purple-two": "#5c5470",
+        "blue-one": "#ADD8E6",
+        "blue-two": "#4169E1",
+        "red-one": "#FFA07A",
+        "red-two": "#FF6B6B",
+        "yellow-one": "#FFFFE0",
+        "yellow-two": "#DAA520",
+        "green-one": "#98FB98",
+        "green-two": "#228B22",
       },
     },
   },

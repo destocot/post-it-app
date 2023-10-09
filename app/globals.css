@@ -2,16 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-input {
-  color: black;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 header {
   max-width: 64rem;
-  margin: 3rem auto;
+  margin: 3rem auto 1rem;
+  transition: all 0.4s;
+  animation: fade-in-from-top 0.5s;
+  height: 3rem;
 }
 
 main {
   max-width: 64rem;
-  margin: 3rem auto;
+  margin: 0 auto;
+  /* margin: 3rem auto 0 auto; */
+  min-height: calc(100vh - (7rem + 3rem));
+}
+
+.fold {
+  position: relative;
+}
+
+/* folding */
+.fold::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-width: 0 25px 25px 0;
+  border-color: transparent;
+  transition: all 0.2s;
+  animation: fade-in 1s;
+}
+.fold:hover::before {
+  border-width: 0 0 50px 50px;
+  border-color: #fafafa #5c5470;
+  @apply dark:border-y-dark-one;
 }
