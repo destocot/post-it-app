@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes fade-in-from-top {
   0% {
     opacity: 0;
@@ -19,6 +10,30 @@
   100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@keyframes spawn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
@@ -37,8 +52,11 @@ main {
   min-height: calc(100vh - (7rem + 3rem));
 }
 
-.fold {
+.fold,
+.bigfold {
   position: relative;
+  transition: all 0.2s;
+  animation: spawn 1s backwards;
 }
 
 /* folding */
@@ -50,10 +68,27 @@ main {
   border-width: 0 25px 25px 0;
   border-color: transparent;
   transition: all 0.2s;
-  animation: fade-in 1s;
+  animation: spawn 1s backwards;
 }
 .fold:hover::before {
   border-width: 0 0 50px 50px;
+  border-color: #fafafa #5c5470;
+  @apply dark:border-y-dark-one;
+}
+
+.bigfold::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-width: 0 50px 50px 0;
+  border-color: transparent;
+  transition: all 0.2s;
+  animation: spawn 1s backwards;
+}
+
+.bigfold:hover::before {
+  border-width: 0 0 100px 100px;
   border-color: #fafafa #5c5470;
   @apply dark:border-y-dark-one;
 }

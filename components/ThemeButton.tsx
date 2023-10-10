@@ -1,6 +1,8 @@
 "use client"
 import { useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { BiSun, BiSolidMoon } from "react-icons/bi";
+import { Database } from "@/types/database.types";
 
 export default function ThemeButton() {
   const [darkmode, setDarkmode] = useState(false);
@@ -8,9 +10,8 @@ export default function ThemeButton() {
 
   useEffect(() => {
     const getTheme = async () => {
-      const supabase = createClientComponentClient();
+      const supabase = createClientComponentClient<Database>();
       const { data: { session } } = await supabase.auth.getSession()
-
       if (session) {
         const userId = session.user.id;
 
@@ -26,19 +27,35 @@ export default function ThemeButton() {
         if (data.dark_mode) {
           document.documentElement.classList.add("dark");
           setDarkmode(true);
+        } else {
+          document.documentElement.classList.remove("dark");
+          setDarkmode(false);
         }
-      } else {
-        document.documentElement.classList.remove("dark");
-        setDarkmode(false);
       }
     }
     getTheme();
   }, [])
 
-  return (
-    <button onClick={() => {
+  const clickHandler = async () => {
+    const supabase = createClientComponentClient<Database>();
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (session) {
+      const userId = session.user.id;
+
+      await supabase
+        .from("profiles")
+        .update({ "dark_mode": !darkmode })
+        .eq('id', userId)
+        .select()
+        .single();
+
       document.documentElement.classList.toggle("dark");
       setDarkmode(state => !state);
-    }}>{darkmode ? "🌞" : "🌚"}</button>
+    }
+  };
+
+  return (
+    <button className="absolute top-4 right-4 hover:scale-110" onClick={() => clickHandler()}>{darkmode ? <BiSun className="light-one font-bold text-3xl" /> : <BiSolidMoon className="dark-one font-bold text-3xl" />}</button>
   )
 }

@@ -1,13 +1,7 @@
 import { PostType } from "@/types/types";
 import { BiLock } from "react-icons/bi";
-// import BluePost from "./ColoredPosts/BluePost";
-// import GreenPost from "./ColoredPosts/GreenPost";
-// import YellowPost from "./ColoredPosts/YellowPost";
-// import RedPost from "./ColoredPosts/RedPost";
-// import PurplePost from "./ColoredPosts/PurplePost";
-import Link from "next/link";
 
-export default function Post({ post, backTo }: { post: PostType, backTo: string }) {
+export default function PostDetails({ post }: { post: PostType }) {
   let baseBackgroundColor;
   let titleBackgroundColor;
   let foldBorderColor;
@@ -51,20 +45,16 @@ export default function Post({ post, backTo }: { post: PostType, backTo: string 
   }
 
   return (
-    <Link href={{ pathname: `/posts/${post.id}`, query: { return: backTo } }}>
-      <div className={`hover:rotate-1 shadow-lg cursor-pointer m-1 aspect-square ${baseBackgroundColor} text-black rounded-sm flex flex-col fold ${foldBorderColor}`}>
-        <div className={`flex ${titleBackgroundColor} text-light-one p-2`}>
-          <p className="font-semibold whitespace-nowrap truncate">{post.title}</p>
-          <span className="ml-auto flex items-center text-lg">{(post.private) && <BiLock />}</span>
-        </div>
-        <p className="m-auto text-center px-2">{(post.content.length < 140) ? post.content : post.content.slice(0, 140) + "..."}</p>
-        <div className="self-start flex gap-1 text-sm px-2">
-          <p className="font-bold">- {display}</p>
-          <p>{new Date(post.created_at).toLocaleDateString('en-US', { month: '2-digit', day: 'numeric', year: '2-digit' })}</p>
-        </div>
+    <div className={`w-3/5 hover:rotate-2 shadow-xl mx-auto aspect-square ${baseBackgroundColor} text-black rounded-md flex flex-col bigfold ${foldBorderColor} text-lg`}>
+      <div className={`flex ${titleBackgroundColor} text-light-one p-4`}>
+        <p className="font-semibold">{post.title}</p>
+        <span className="ml-auto flex items-center text-2xl">{(post.private) && <BiLock />}</span>
       </div>
-    </Link >
+      <p className="m-auto px-4">{post.content}</p>
+      <div className="self-start flex gap-1 px-4">
+        <p className="font-bold">- {display}</p>
+        <p>{new Date(post.created_at).toLocaleDateString('en-US', { month: '2-digit', day: 'numeric', year: '2-digit' })}</p>
+      </div>
+    </div>
   )
-
-
 }

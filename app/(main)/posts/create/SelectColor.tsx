@@ -4,18 +4,19 @@ import { ChangeEvent, useEffect, useState } from "react";
 import resolveConfig from 'tailwindcss/resolveConfig'
 import myConfig from '@/tailwind.config'
 
-export default function SelectColor() {
-  // const createPostForm = document.getElementById("create-post-form");
+export default function SelectColor({ color }: { color?: string }) {
   const tailwindConfig = resolveConfig(myConfig)
   const colors = tailwindConfig.theme?.colors!;
 
-  const changeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    // console.log(e.target.value);
+  const changeHandler = (e: ChangeEvent<HTMLSelectElement> | null, existingValue?: string) => {
     const createPostForm = document.getElementById("create-post-form")!;
     const createPostTitle = document.getElementById("create-post-title")!;
     const createPostContent = document.getElementById("create-post-content")!;
     const createPostButton = document.getElementById("create-post-button")!;
-    switch (e.target.value) {
+
+    const valueToCheck = existingValue || e.target.value;
+
+    switch (valueToCheck) {
       case "blue":
         createPostForm.style.backgroundColor = colors["blue-one"] as string;
         createPostTitle.style.backgroundColor = colors["blue-two"] as string;
@@ -49,9 +50,15 @@ export default function SelectColor() {
     }
   }
 
+  useEffect(() => {
+    const selectMenu: HTMLSelectElement = document.querySelector("#form-select")!;
+    selectMenu.value = color || "purple";
+    changeHandler(null, color);
+  });
+
   return (
     <label className="flex items-center gap-2">Color?
-      <select name="color" onChange={(e) => changeHandler(e)}>
+      <select id="form-select" name="color" onChange={(e) => changeHandler(e)}>
         <option value="purple">Purple</option>
         <option value="blue">Blue</option>
         <option value="green">Green</option>

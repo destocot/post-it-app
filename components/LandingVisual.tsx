@@ -5,7 +5,7 @@ import PostItModel from "./PostItModel";
 
 export default function LandingVisual() {
   return (
-    <Canvas style={{ width: "50vw", height: "50vh" }} className="flex items-center justify-center -mt-24 mx-auto -mb-24 -z-10">
+    <Canvas style={{ width: "50vw", height: "50vh" }} className="flex items-center justify-center -mt-24 mx-auto -mb-24">
       <Stage environment="city" intensity={10}>
         <PostItModel rotation={[Math.PI / 125, 0, Math.PI / 115]} />
       </Stage>

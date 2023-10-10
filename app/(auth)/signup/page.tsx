@@ -19,34 +19,32 @@ export default function SignupPage() {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    const { data: userExists, error: userError } = await supabase
+    const { data: user } = await supabase
       .from("profiles")
       .select("id")
       .eq("username", username)
       .single();
 
-    if (userExists) {
+    if (user) {
       setSubmitting(false);
       return toast.error("Username already taken");
     }
 
-    const { data: signupData, error: signupError } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         emailRedirectTo: `${location.origin}/api/auth/callback`,
+        data: {
+          username
+        }
       },
     })
 
-    if (signupError) {
+    if (error) {
       setSubmitting(false);
-      toast.error(signupError.message);
+      toast.error(error.message);
     }
-
-    const { data, error } = await supabase.from("profiles")
-      .insert({ id: signupData.user?.id, username });
-
-    // console.log(data, error);
 
     router.push("verify");
   };

@@ -12,11 +12,17 @@ export default async function CreatePostPage() {
     redirect('/landing')
   }
 
+  let displayName = session.user.user_metadata.full_name;
+
   const userId = session.user.id;
   const { data: { username }, error } = await supabase.from("profiles")
     .select()
     .eq("id", userId)
     .single();
+
+  if (username) {
+    displayName = username;
+  }
 
   return (
     <main>
@@ -38,9 +44,9 @@ export default async function CreatePostPage() {
         >
         </textarea>
         <div className="flex items-center gap-2 px-4 py-3">
-          <p className="font-bold">- {username}</p>
+          <p className="font-bold">- {displayName}</p>
           <label className="flex items-center gap-2">Private?<input type="checkbox" name="private" value="true" /></label>
-          <SelectColor />
+          <SelectColor color="purple" />
           <button
             id="create-post-button"
             className="ml-auto py-1 px-2 rounded-md transition-all bg-purple-two hover:scale-110 text-white" type="submit">Submit</button>
