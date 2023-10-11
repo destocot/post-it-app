@@ -34,7 +34,7 @@ export default function EditForm({ post, setEditMode }: { post: PostType, setEdi
 
   let display;
   if (post.profiles) {
-    display = post.profiles.username || post.profiles.name;
+    display = post.profiles.name;
   }
 
   return (

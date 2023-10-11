@@ -1,8 +1,9 @@
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
-import { FaHome, FaRegStickyNote, FaHouseUser, FaRegPlusSquare, FaRegUserCircle } from "react-icons/fa";
+import { FaHome, FaRegStickyNote, FaHouseUser, FaRegPlusSquare } from "react-icons/fa";
+import Image from "next/image";
 
-export default async function Navbar({ display, logout }: { display: string | null, logout: boolean }) {
+export default async function Navbar({ display, avatar }: { display: string | null, avatar: string | null }) {
   return (
     <>
       <header>
@@ -16,8 +17,9 @@ export default async function Navbar({ display, logout }: { display: string | nu
             <Link className="hover:underline underline-offset-4 transition-all flex items-center gap-1" href="/posts/create"><FaRegPlusSquare /> New Post</Link>
           </ul>
           <div className="flex gap-2 items-end">
-            {display && <h2 className="text-2lg font-bold flex gap-1 items-center"><FaRegUserCircle /> Welcome, {display}</h2>}
-            {logout && <LogoutButton />}
+            {display && <h2 className="text-2lg font-bold flex gap-2 items-center"><Image src={`${avatar}`} alt=""
+              width={25} height={25} className="max-w-[25px] aspect-square border-2 object-cover rounded-full border-light-five dark:border-dark-five" />Welcome, {display}</h2>}
+            <LogoutButton />
           </div>
         </nav>
       </header>

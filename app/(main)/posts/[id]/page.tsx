@@ -9,7 +9,7 @@ const getPost = async (postId: string) => {
 
   const { data: post, error } = await supabase
     .from("posts")
-    .select('*, profiles (username, name)')
+    .select('*, profiles (name)')
     .eq("id", postId)
     .single();
 

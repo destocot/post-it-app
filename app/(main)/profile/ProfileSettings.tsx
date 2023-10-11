@@ -4,24 +4,55 @@ import { FiSettings } from "react-icons/fi";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/database.types"
 import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ProfileSettings({ display }: { display: string | null }) {
   const [settings, setSettings] = useState(false);
   const router = useRouter();
 
-  display = display || "";
-  const [username, setUsername] = useState(display)
+  const [name, setName] = useState(display);
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
 
   const handleUpdate = async () => {
+
+    //  upload image
+    const formData = new FormData();
+    if (avatarFile) {
+      formData.append("file", avatarFile);
+      formData.append("upload_preset", "wmleukdy");
+    }
+
+    const data = await fetch("https://api.cloudinary.com/v1_1/detsfgack/image/upload", {
+      method: "POST",
+      body: formData
+    })
+
+    if (avatarFile && !data.ok) {
+      setAvatarFile(null);
+      return toast.error("Error uploading image.");
+    }
+
+    const json = await data.json();
+    const avatar_url = json.secure_url || null;
+
     const supabase = createClientComponentClient<Database>();
     const { data: { session } } = await supabase.auth.getSession();
 
     if (session) {
       const userId = session.user.id;
 
+      let options = {};
+      if (name && avatar_url) {
+        options = { name, avatar_url }
+      } else if (name) {
+        options = { name }
+      } else if (avatar_url) {
+        options = { avatar_url }
+      }
+
       const { data, error } = await supabase
         .from("profiles")
-        .update({ username })
+        .update(options)
         .eq('id', userId)
         .select()
         .single();
@@ -33,18 +64,29 @@ export default function ProfileSettings({ display }: { display: string | null })
     };
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files) {
+      setAvatarFile(files[0]);
+    }
+  };
+
   return (
     <>
+      <Toaster />
       <button onClick={() => setSettings(true)}>
         <FiSettings />
       </button>
       {settings && <div className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover">
         <div className="absolute bg-black/50 opacity-80 inset-0 z-0"></div>
-        <div className="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  dark:bg-dark-two bg-light-two ">
+        <div className="w-full  max-w-lg p-4 relative mx-auto my-auto rounded-xl shadow-lg  dark:bg-dark-two bg-light-two ">
           <div className="">
-            <div className="text-center p-5 flex-auto justify-center">
-              <h2 className="text-xl font-bold py-4 ">Change Username?</h2>
-              <input type="text" className="dark:text-dark-two text-lg w-full px-4 py-2" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <div className="text-center p-4 flex-auto justify-center">
+              <h2 className="text-xl font-bold py-2 ">Change Username?</h2>
+              <input type="text" className="dark:text-dark-two text-lg w-full px-4 py-2 mb-2" value={name || ""} onChange={(e) => setName(e.target.value)} />
+              <h2 className="text-xl font-bold py-2 ">Change Avatar?</h2>
+              <input className="text-base shadow dark:text-dark-four" type="file" name="file"
+                accept="image/jpeg, image/png, image/webp" onChange={handleFileChange} />
             </div>
             <div className="p-3  mt-2 text-center space-x-4 md:block">
               <button onClick={() => setSettings(false)} className="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">

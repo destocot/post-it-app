@@ -12,7 +12,7 @@ const getPosts = async (userId: string | null) => {
   if (userId) {
     const { data, error } = await supabase
       .from("posts")
-      .select('*, profiles (username, name)')
+      .select('*, profiles (name)')
       .eq("user_id", userId)
       .order('created_at', { ascending: false })
 
@@ -20,7 +20,7 @@ const getPosts = async (userId: string | null) => {
   } else {
     const { data, error } = await supabase
       .from("posts")
-      .select('*, profiles (username, name)')
+      .select('*, profiles (name)')
       .eq("private", false)
       .order('created_at', { ascending: false })
 

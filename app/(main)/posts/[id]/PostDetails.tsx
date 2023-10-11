@@ -1,4 +1,5 @@
 import { PostType } from "@/types/types";
+import Link from "next/link";
 import { BiLock } from "react-icons/bi";
 
 export default function PostDetails({ post }: { post: PostType }) {
@@ -41,7 +42,7 @@ export default function PostDetails({ post }: { post: PostType }) {
 
   let display;
   if (post.profiles) {
-    display = post.profiles.username || post.profiles.name;
+    display = post.profiles.name;
   }
 
   return (
@@ -51,8 +52,8 @@ export default function PostDetails({ post }: { post: PostType }) {
         <span className="ml-auto flex items-center text-2xl">{(post.private) && <BiLock />}</span>
       </div>
       <p className="m-auto px-4">{post.content}</p>
-      <div className="self-start flex gap-1 px-4">
-        <p className="font-bold">- {display}</p>
+      <div className="text-xl self-start flex gap-1 px-4">
+        <Link href={`/profile/view/${display}`} className="font-bold">- {display}</Link>
         <p>{new Date(post.created_at).toLocaleDateString('en-US', { month: '2-digit', day: 'numeric', year: '2-digit' })}</p>
       </div>
     </div>

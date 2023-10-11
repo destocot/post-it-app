@@ -1,6 +1,5 @@
 "use client"
-
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect } from "react";
 import resolveConfig from 'tailwindcss/resolveConfig'
 import myConfig from '@/tailwind.config'
 
@@ -14,7 +13,7 @@ export default function SelectColor({ color }: { color?: string }) {
     const createPostContent = document.getElementById("create-post-content")!;
     const createPostButton = document.getElementById("create-post-button")!;
 
-    const valueToCheck = existingValue || e.target.value;
+    const valueToCheck = existingValue || e?.target.value;
 
     switch (valueToCheck) {
       case "blue":

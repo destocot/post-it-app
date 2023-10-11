@@ -56,6 +56,6 @@ export default function ThemeButton() {
   };
 
   return (
-    <button className="absolute top-4 right-4 hover:scale-110" onClick={() => clickHandler()}>{darkmode ? <BiSun className="light-one font-bold text-3xl" /> : <BiSolidMoon className="dark-one font-bold text-3xl" />}</button>
+    <button className="absolute top-4 right-4 hover:scale-110" onClick={() => clickHandler()}>{darkmode ? <BiSolidMoon className="light-one font-bold text-3xl" /> : <BiSun className="dark-one font-bold text-3xl" />}</button>
   )
 }

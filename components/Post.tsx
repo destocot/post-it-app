@@ -47,7 +47,7 @@ export default function Post({ post, backTo }: { post: PostType, backTo: string 
 
   let display;
   if (post.profiles) {
-    display = post.profiles.username || post.profiles.name;
+    display = post.profiles.name;
   }
 
   return (

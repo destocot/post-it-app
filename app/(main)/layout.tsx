@@ -21,21 +21,23 @@ export default async function AuthLayout({
 
   const userId = session.user.id;
   const { data: user, error } = await supabase.from("profiles")
-    .select("username, name")
+    .select("name, id, avatar_url")
     .eq("id", userId)
     .single();
 
   let display = null;
+  let avatar = null;
   if (user) {
-    display = user.username || user.name;
+    display = user.name;
+    avatar = user.avatar_url;
   }
 
   return (
     <>
       <ThemeButton />
-      <Navbar display={display} logout={true} />
+      <Navbar display={display} avatar={avatar} />
       {children}
-      <footer className="flex justify-center items-center py-4 h-12">
+      <footer className="flex justify-center items-center py-8 mt-8 mb-4">
         <p>
           Khurram Ali - Stick-It! - &copy; 2023
         </p>

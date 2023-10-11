@@ -17,6 +17,6 @@ export default function LogoutButton() {
   };
 
   return (
-    <button onClick={logout} className="flex gap-1 items-center"><BiLogOut /> Logout</button>
+    <button onClick={logout} className="hover:underline transition-all underline-offset-4 flex gap-1 items-center"><BiLogOut /> Logout</button>
   )
 }
