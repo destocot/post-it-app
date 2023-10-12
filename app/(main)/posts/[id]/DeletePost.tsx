@@ -9,7 +9,7 @@ export default function DeletePost({ setDeleteConfirmation, postId, returnRoute 
 
   const deletePost = async () => {
     const supabase = createClientComponentClient<Database>()
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from("posts")
       .delete()
       .eq('id', postId)

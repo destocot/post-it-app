@@ -1,11 +1,11 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import PostList from "@/components/PostList";
 import { redirect } from "next/navigation";
 import { Database } from "@/types/database.types";
 import ProfileSettings from "./ProfileSettings";
 import Image from "next/image";
 import { FaRegStickyNote } from "react-icons/fa";
+import { ProfilePostList, PinnedPosts } from "./ProfilePostList";
 
 export default async function ProfilePage() {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -38,9 +38,9 @@ export default async function ProfilePage() {
 
   return (
     <main>
-      <div className="flex gap-5 items-end p-2">
+      <div className="flex gap-5 items-end p-2 bg-profile-banner">
         <Image src={`${avatar}`} alt=""
-          width={200} height={200} className="max-w-[200px] aspect-square shadow-md border-2 object-cover rounded-full border-light-five dark:border-dark-five" />
+          width={200} height={200} className="max-w-[175px] mx-2 my-1 aspect-square shadow-md border-2 object-cover rounded-full border-light-five dark:border-dark-five" />
         <h1 className="uppercase text-3xl px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
           {display}&apos;s profile
         </h1>
@@ -51,10 +51,11 @@ export default async function ProfilePage() {
           <ProfileSettings display={display} />
         </h1>
       </div>
+      {userId && <PinnedPosts userId={userId} />}
       <h1 className="uppercase text-3xl mt-6 mb-4 px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
         Your posts
       </h1>
-      {userId && <PostList userId={userId} backTo="profile" />}
+      {userId && <ProfilePostList userId={userId} />}
     </main>
   );
 }

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { validationCheck } from "./validationCheck";
+import Image from "next/image";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -11,45 +13,58 @@ export default function SignupPage() {
   const [submitting, setSubmitting] = useState(false);
 
   const [signupData, setSignupData] = useState({
-    name: "daisy",
-    email: "daisy@example.com",
-    password: "daisy123",
+    name: "",
+    email: "",
+    password: "",
   });
 
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [avatarSrc, setAvatarSrc] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
 
-    if (!signupData.name) {
+    const errorMessage = await validationCheck(signupData);
+    if (errorMessage) {
       setSubmitting(false);
-      return toast.error("Please enter a username.");
+      return toast.error(errorMessage);
     }
 
-    if (!signupData.email) {
+    const { secure_url, delete_token } = await handleImageUpload();
+
+    // signup user
+    const { email, password, name } = signupData;
+    const avatar_url = (secure_url) ? secure_url : `https://ui-avatars.com/api/?size=200&name=${name}`;
+
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: `${location.origin}/api/auth/callback`,
+        data: {
+          name,
+          avatar_url
+        }
+      },
+    })
+    console.log(data, error);
+    if (error) {
+      handleImageDeletion(delete_token);
+      toast.error(error.message);
       setSubmitting(false);
-      return toast.error("Please enter an email.");
     }
 
-    if (!signupData.password) {
-      setSubmitting(false);
-      return toast.error("Please enter a password.");
-    }
+    router.push("verify");
+  };
 
-    const { count: userExists } = await supabase
-      .from("profiles")
-      .select('*', { count: 'exact', head: true })
-      .eq("name", signupData.name)
-
-    if (userExists) {
-      setSubmitting(false);
-      return toast.error("Username already taken");
-    }
-
-    //  upload image
+  const handleImageUpload = async () => {
     const formData = new FormData();
-    let json;
+    let json = {
+      secure_url: null,
+      delete_token: null
+    };
+
     if (avatarFile) {
       formData.append("file", avatarFile);
       formData.append("upload_preset", "wmleukdy");
@@ -62,34 +77,26 @@ export default function SignupPage() {
       json = await data.json();
     }
 
-    // signup user
-    const { email, password, name } = signupData;
-    const avatar_url = (json) ? json.secure_url : `https://ui-avatars.com/api/?size=200&name=${name}`;
+    return json;
+  };
 
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${location.origin}/api/auth/callback`,
-        data: {
-          name,
-          avatar_url
+  const handleImageDeletion = async (deleteToken: string | null) => {
+    if (deleteToken) {
+      await fetch(`https://api.cloudinary.com/v1_1/detsfgack/delete_by_token`, {
+        method: "POST",
+        body: `token=${deleteToken}`,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
-      },
-    })
-
-    if (error) {
-      setSubmitting(false);
-      toast.error(error.message);
+      });
     }
-
-    router.push("verify");
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files) {
       setAvatarFile(files[0]);
+      setAvatarSrc(URL.createObjectURL(files[0]));
     }
   };
 
@@ -98,7 +105,7 @@ export default function SignupPage() {
       <div className="w-1/2">
         <Toaster />
         <h1 className="uppercase text-3xl mb-4 px-2 py-1 -skew-x-6 border-2 border-light-four bg-light-three/50 font-bold w-fit mx-auto dark:border-dark-four dark:bg-dark-five/50">Signup</h1>
-        <form onSubmit={handleSubmit} className="w-full mx-auto p-4 border text-lg bg-light-four rounded-md shadow-xl dark:bg-dark-two">
+        <form onSubmit={handleSubmit} className="w-full mx-auto p-4 border text-lg bg-light-four/50 rounded-md shadow-xl">
           <label className=" flex justify-between items-center my-1">
             Username: <input className="shadow w-3/4 p-2 my-1 dark:text-dark-one" type="text" name="name" required
               placeholder="Enter your username" value={signupData.name || ""} onChange={(e) => setSignupData({ ...signupData, name: e.target.value })} />
@@ -112,8 +119,10 @@ export default function SignupPage() {
               placeholder="Enter your password" value={signupData.password || ""} onChange={(e) => setSignupData({ ...signupData, password: e.target.value })} />
           </label>
           <label className="flex justify-between items-center my-1">
-            Avatar: <input className="shadow w-3/4 p-2 my-1 dark:text-dark-four" type="file" name="file"
+            Avatar:
+            <input className="shadow w-3/5 p-2 my-1 dark:text-dark-one" type="file" name="file"
               accept="image/jpeg, image/png, image/webp" onChange={handleFileChange} />
+            {avatarSrc && <Image src={avatarSrc} alt="" width={75} height={75} className=" border rounded-full object-cover aspect-square" />}
           </label>
           <button disabled={submitting} type="submit" className="shadow my-2 block mx-auto py-2 px-10 hover:scale-110 font-bold hover:text-light-three rounded-md transition-all bg-light-three hover:bg-light-five text-light-five">Signup</button>
           <span className="flex justify-center">Already a member? Login <Link className="ml-1 underline underline-offset-4 inline-block font-semibold hover:text-light-two" href="/login">here</Link></span>

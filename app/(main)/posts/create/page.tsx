@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { createPost } from '@/utils/actions'
 import SelectColor from './SelectColor'
+import SubmitButton from './SubmitButton'
 
 export default async function CreatePostPage() {
   const supabase = createServerComponentClient({ cookies })
@@ -41,9 +42,7 @@ export default async function CreatePostPage() {
           <p className="font-bold">- {name}</p>
           <label className="flex items-center gap-2">Private?<input type="checkbox" name="private" value="true" /></label>
           <SelectColor color="purple" />
-          <button
-            id="create-post-button"
-            className="ml-auto py-1 px-2 rounded-md transition-all bg-purple-two hover:scale-110 text-white" type="submit">Submit</button>
+          <SubmitButton />
         </div>
       </form>
     </main >
