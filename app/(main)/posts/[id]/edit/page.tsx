@@ -36,12 +36,12 @@ export default async function EditPost({ params }: { params: { id: string } }) {
     <main>
       <div className="flex justify-between items-center mb-5">
         <h1
-          className="uppercase text-2xl px-8 py-2 -skew-x-6 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit ">
+          className="uppercase text-2xl mx-auto mt-6 mb-4 px-8 py-2 -skew-x-6 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit ">
           Editing Post
         </h1>
-        <Link href={`/posts/${post.id}`} className="shadow my-2 py-2 px-8 hover:scale-110 font-bold hover:text-light-three rounded-md transition-all bg-light-three hover:bg-light-five text-light-five dark:bg-dark-two dark:text-dark-three dark:hover:text-dark-two dark:hover:bg-dark-three border"><BiArrowBack className="text-3xl" /></Link>
+        <Link href={`/posts/${post.id}`} className="mx-auto shadow my-2 py-2 px-8 hover:scale-110 font-bold hover:text-light-three rounded-md transition-all bg-light-three hover:bg-light-five text-light-five dark:bg-dark-two dark:text-dark-three dark:hover:text-dark-two dark:hover:bg-dark-three border"><BiArrowBack className="text-3xl" /></Link>
       </div>
-      <form id="create-post-form" action={updatePost} className="text-lg w-full mx-auto bg-purple-one text-black flex flex-col border border-light-four dark:border-dark-four">
+      <form id="create-post-form" action={updatePost} className="text-lg w-5/6 mx-auto bg-purple-one text-black flex flex-col border border-light-four dark:border-dark-four">
         <input type="hidden" name="postId" value={post.id} />
         <input
           id="create-post-title"
@@ -58,7 +58,7 @@ export default async function EditPost({ params }: { params: { id: string } }) {
           defaultValue={post.content}
         >
         </textarea>
-        <div className="flex items-center gap-2 px-4 py-3">
+        <div className="flex flex-wrap items-center gap-2 px-4 py-3">
           <p className="font-bold">- {display}</p>
           <label className="flex items-center gap-2">Private?<input type="checkbox" name="private" value="true" defaultChecked={(post.private) ? true : false} /></label>
           <SelectColor color={post.color} />

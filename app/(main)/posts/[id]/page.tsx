@@ -37,9 +37,9 @@ export default async function page({ params }: { params: { id: string } }) {
 
   return (
     <main>
-      <div className="flex justify-between items-center mb-5">
+      <div className="flex flex-wrap justify-between items-center mb-5">
         <h1
-          className="uppercase text-2xl px-8 py-2 -skew-x-6 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
+          className="uppercase text-2xl mt-6 mb-4 mx-auto px-8 py-2 -skew-x-6 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
           Post Details
         </h1>
         <Mutations post={post} userId={userId} />

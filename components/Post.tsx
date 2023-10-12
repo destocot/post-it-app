@@ -15,7 +15,7 @@ export default function Post({ post, backTo }: { post: PostType, backTo: string 
 
   return (
     <Link href={{ pathname: `/posts/${post.id}`, query: { return: backTo } }}>
-      <div className={`hover:rotate-1 shadow-lg cursor-pointer m-1 aspect-square ${baseBackgroundColor} text-black rounded-sm flex flex-col fold ${foldBorderColor}`}>
+      <div className={`hover:rotate-1 shadow-lg cursor-pointer m-1 aspect-square ${baseBackgroundColor} text-black rounded-sm flex flex-col fold ${foldBorderColor} w-5/6 mx-auto`}>
         <div className={`flex ${titleBackgroundColor} text-light-one p-2`}>
           <p className="font-semibold whitespace-nowrap truncate">{post.title}</p>
           <span className="ml-auto flex items-center text-lg">{(post.private) && <BiLock />}</span>

@@ -24,13 +24,18 @@ export async function ProfilePostList({ userId }: { userId: string }) {
   const shadow = (posts && posts.length > 8) ? true : false;
 
   return (
-    <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 max-h-screen ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
-      {(posts) && posts.map((post) =>
-        <Post key={post.id} post={post} backTo="profile" />
-      )}
-      {(!posts) && <Loading />}
-      {(shadow) && <div className="col-span-4 py-24"></div>}
-    </div>
+    <>
+      <h1 className="uppercase mx-auto text-3xl mt-6 mb-4 px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
+        Your posts
+      </h1>
+      <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 max-h-1/2 ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
+        {(posts) && posts.map((post) =>
+          <Post key={post.id} post={post} backTo="profile" />
+        )}
+        {(!posts) && <Loading />}
+        {(shadow) && <div className="hidden md:block col-span-4 py-24"></div>}
+      </div>
+    </>
   )
 }
 
@@ -56,10 +61,10 @@ export async function PinnedPosts({ userId }: { userId: string }) {
 
   return (
     <>
-      {(posts && !!posts.length) && <h1 className="uppercase text-3xl mt-6 mb-4 px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
+      {(posts && !!posts.length) && <h1 className="uppercase mx-auto text-3xl mt-6 mb-4 px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
         Pinned Posts
       </h1>}
-      <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 max-h-screen ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
+      <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 max-h-1/2 ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
         {(posts) && posts.map((post) =>
           <Post key={post.id} post={post} backTo="profile" />
         )}

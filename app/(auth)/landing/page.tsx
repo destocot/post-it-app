@@ -1,6 +1,8 @@
 import Link from "next/link";
 import LandingVisual from "@/components/LandingVisual";
 import GoogleLogin from "./GoogleLogin";
+import { Suspense } from "react";
+import Loading from "@/components/Loading";
 
 const greetings = [
   'Hello World',         // English
@@ -20,9 +22,11 @@ export default async function LandingPage() {
   return (
     <main className="h-screen flex justify-center items-center my-0">
       <div>
-        <h1 className="uppercase text-8xl bg-light-three/75 -skew-x-6 font-bold w-fit mx-auto mb-2 px-4 dark:border-dark-four dark:bg-dark-five/50">stick-it!</h1>
-        <div className="relative -z-10">
-          <LandingVisual />
+        <h1 className="uppercase text-6xl md:text-8xl bg-light-three/75 -skew-x-6 font-bold w-fit mx-auto mb-2 px-4 dark:border-dark-four dark:bg-dark-five/50">stick-it!</h1>
+        <div className="relative -z-10 flex items-center justify-center">
+          <Suspense fallback={<Loading />}>
+            <LandingVisual />
+          </Suspense>
           <code className="text-dark-one font-semibold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-light-two/50 p-2">{greetings[Math.floor(Math.random() * greetings.length)]}</code>
         </div>
         <div className="flex flex-col items-center">

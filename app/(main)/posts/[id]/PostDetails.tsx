@@ -12,7 +12,7 @@ export default function PostDetails({ post }: { post: PostType }) {
   }
 
   return (
-    <form id="create-post-form" className={`text-lg w-full mx-auto text-black flex flex-col border border-light-four dark:border-dark-four ${baseBackgroundColor}`}>
+    <form id="create-post-form" className={`text-lg w-5/6 mx-auto text-black flex flex-col border border-light-four dark:border-dark-four ${baseBackgroundColor}`}>
       <input
         id="create-post-title"
         className={`w-full block outline-none text-white p-4 ${titleBackgroundColor}`}

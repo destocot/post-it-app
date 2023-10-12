@@ -38,13 +38,13 @@ export default async function ProfilePage() {
 
   return (
     <main>
-      <div className="flex gap-5 items-end p-2 bg-profile-banner">
+      <div className="flex flex-wrap gap-5 mt-6 items-end p-2 bg-profile-banner">
         <Image src={`${avatar}`} alt=""
           width={200} height={200} className="max-w-[175px] mx-2 my-1 aspect-square shadow-md border-2 object-cover rounded-full border-light-five dark:border-dark-five" />
-        <h1 className="uppercase text-3xl px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
+        <h1 className="uppercase text-2xl px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
           {display}&apos;s profile
         </h1>
-        <h1 className="uppercase text-3xl px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit flex items-center gap-1">
+        <h1 className="uppercase text-2xl px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit flex items-center gap-1">
           {numOfPosts} <FaRegStickyNote />
         </h1>
         <h1 className="text-4xl px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold hover:bg-light-four dark:hover:bg-dark-five flex items-center ml-auto">
@@ -52,9 +52,6 @@ export default async function ProfilePage() {
         </h1>
       </div>
       {userId && <PinnedPosts userId={userId} />}
-      <h1 className="uppercase text-3xl mt-6 mb-4 px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
-        Your posts
-      </h1>
       {userId && <ProfilePostList userId={userId} />}
     </main>
   );
