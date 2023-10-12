@@ -51,9 +51,9 @@ export default async function ViewProfilePage({ params }: { params: { name: stri
 
   return (
     <main>
-      <div className="flex gap-5 items-end p-2 bg-profile-banner">
+      <div className="flex flex-wrap gap-5 items-end p-2 mt-6 bg-profile-banner">
         <Image src={`${userInfo.avatar_url}`} alt=""
-          width={200} height={200} className="max-w-[175px] mx-2 my-1 aspect-square shadow-md border-2 object-cover rounded-full border-light-five dark:border-dark-five" />
+          width={200} height={200} className="bg-default-profile max-w-[100px] md:max-w-[175px] mx-2 my-1 aspect-square shadow-md border-2 object-cover rounded-full border-light-five dark:border-dark-five" />
         <h1 className="uppercase text-3xl px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
           {userInfo.name}&apos;s profile
         </h1>
@@ -65,9 +65,6 @@ export default async function ViewProfilePage({ params }: { params: { name: stri
         </h1>}
       </div>
       {userId && <PinnedPosts userId={userId} />}
-      <h1 className="uppercase text-3xl mt-6 mb-4 px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
-        posts
-      </h1>
       {userId && <ProfilePostList userId={userId} />}
     </main>
   );

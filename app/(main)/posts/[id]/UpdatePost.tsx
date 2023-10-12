@@ -34,8 +34,8 @@ export default function UpdatePost({ postId, pinned }: { postId: string, pinned:
     <>
       <Toaster />
       <button disabled={updating} onClick={() => updatePost()} className="shadow dark:border-dark-three border my-2 py-2 px-8 hover:scale-110 font-bold hover:text-light-three rounded-md transition-all bg-light-three hover:bg-light-five text-light-five dark:bg-dark-two dark:text-dark-three dark:hover:text-dark-two dark:hover:bg-dark-three">
-        {(pinned) && <RiUnpinLine className="text-2xl" />}
-        {(!pinned) && <RiPushpinLine className="text-2xl" />}
+        {(pinned) && <RiUnpinLine className="text-xl md:text-2xl" />}
+        {(!pinned) && <RiPushpinLine className="text-xl md:text-2xl" />}
       </button>
     </>
   )

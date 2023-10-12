@@ -23,7 +23,7 @@ export default function SearchPostList({ query }: { query: string }) {
 
   return (
     <>
-      <div className="grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 px-2">
+      <div className="grid lg:grid-cols-4 gap-2 md:grid-cols-3 grid-cols-2 lg:p-0 px-2">
         {(posts.length !== 0) && posts.map((post) =>
           <Post key={post.id} post={post} backTo="home" />
         )}

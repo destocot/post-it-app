@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function NotFound() {
+export default function PostsNotFound() {
   return (
     <main>
       <Image
@@ -12,9 +12,9 @@ export default function NotFound() {
         loading="lazy"
       />
       <div className="flex flex-col absolute top-10 right-5 md:right-20 gap-4 text-dark-two">
-        <h2 className="text-2xl md:text-5xl">Page not found!</h2>
+        <h2 className="text-2xl md:text-5xl">Post not found!</h2>
         <button className="text-xl md:text-4xl">Click <Link className=" underline underline-offset-4 hover:text-[peru]" href="/">here</Link> to go back</button>
       </div>
     </main>
-  );
+  )
 }

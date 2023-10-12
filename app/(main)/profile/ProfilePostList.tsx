@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from "@/types/database.types";
 import Loading from '@/components/Loading';
+import Link from 'next/link';
 
 const getUnpinnedPosts = async (userId: string) => {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -26,12 +27,12 @@ export async function ProfilePostList({ userId }: { userId: string }) {
   return (
     <>
       <h1 className="uppercase mx-auto text-3xl mt-6 mb-4 px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
-        Your posts
+        {(posts && !!posts.length) ? posts[0].profiles!.name + "'s posts" : "posts"}
       </h1>
-      <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 max-h-1/2 ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
+      <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 grid-cols-2 lg:p-0 max-h-1/2 ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
         {(posts && !!posts.length) ? posts.map((post) =>
           <Post key={post.id} post={post} backTo="profile" />
-        ) : <h1 className="col-span-4 mx-auto">no posts yet, click new post to make your first!</h1>}
+        ) : <h1 className="col-span-4 mx-auto">no posts yet!</h1>}
         {(!posts) && <Loading />}
         {(shadow) && <div className="hidden md:block col-span-4 py-24"></div>}
       </div>
@@ -64,7 +65,7 @@ export async function PinnedPosts({ userId }: { userId: string }) {
       {(posts && !!posts.length) && <h1 className="uppercase mx-auto text-3xl mt-6 mb-4 px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
         Pinned Posts
       </h1>}
-      <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 max-h-1/2 ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
+      <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 grid-cols-2 lg:p-0 max-h-1/2 ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
         {(posts) && posts.map((post) =>
           <Post key={post.id} post={post} backTo="profile" />
         )}

@@ -12,26 +12,25 @@ export default function PostDetails({ post }: { post: PostType }) {
   }
 
   return (
-    <form id="create-post-form" className={`text-lg w-5/6 mx-auto text-black flex flex-col border border-light-four dark:border-dark-four ${baseBackgroundColor}`}>
+    <form id="create-post-form" className={`text-lg w-5/6 aspect-square md:aspect-auto mx-auto text-black flex flex-col border border-light-four dark:border-dark-four ${baseBackgroundColor}`}>
       <input
         id="create-post-title"
-        className={`w-full block outline-none text-white p-4 ${titleBackgroundColor}`}
+        className={`w-full block outline-none  p-4 ${titleBackgroundColor} text-light-one`}
         type="text"
         defaultValue={post.title || ""}
         disabled
       />
-      <textarea
+      <div
         id="create-post-content"
-        className={`w-full block outline-none flex-1 p-4 ${baseBackgroundColor}`}
+        className={`whitespace-pre-wrap overflow-auto h-5/6 md:aspect-auto aspect-square block outline-none p-4 ${baseBackgroundColor}`}
         defaultValue={post.content}
-        disabled
-      >
-      </textarea>
+      >{post.content}
+      </div>
       <div className="flex items-center gap-2 px-4 py-4">
         <Link href={`/profile/view/${display}`} className="font-semibold hover:underline underline-offset-4">- {display}</Link>
         <p>{new Date(post.created_at).toLocaleDateString('en-US', { month: '2-digit', day: 'numeric', year: '2-digit' })}</p>
       </div>
-    </form>
+    </form >
   )
 }
 

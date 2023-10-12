@@ -6,7 +6,6 @@ import { Database } from "@/types/database.types";
 
 export default function ThemeButton() {
   const [darkmode, setDarkmode] = useState(false);
-  // redirect user if they do not have a session]
 
   useEffect(() => {
     const getTheme = async () => {
@@ -20,9 +19,9 @@ export default function ThemeButton() {
           .eq("id", userId)
           .single();
 
-        // if (error) {
-        //   throw new Error(error.message);
-        // }
+        if (error) {
+          throw new Error(error.message);
+        }
 
         if (data && data.dark_mode) {
           document.documentElement.classList.add("dark");

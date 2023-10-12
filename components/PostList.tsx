@@ -55,13 +55,13 @@ export default function PostList() {
 
   return (
     <>
-      {!(posts.length < 12) && <button onClick={() => setPage(state => state + 1)} className="mx-auto shadow px-5 mb-3 text-2xl hover:scale-105 font-bold hover:text-light-three rounded-md transition-all bg-light-three/70 hover:bg-light-five text-light-five flex items-center dark:text-dark-four dark:bg-dark-two">SHOW MORE POSTS</button>}
+      {!(posts.length < 12) && <button onClick={() => setPage(state => state + 1)} className="mx-auto shadow px-5 mb-3 text-2xl hover:scale-105 font-bold hover:text-light-three rounded-md transition-all bg-light-three/70 hover:bg-light-five text-light-five flex items-center dark:text-dark-four dark:bg-dark-two dark:border-2 dark:border-dark-three dark:hover:bg-dark-four dark:hover:text-dark-two">SHOW MORE POSTS</button>}
       {(posts.length < 12) && (posts.length > 0) && <button onClick={() => {
         setPosts([]);
         setPage(page + 1);
         setTimeout(() => setPage(1), 10);
-      }} className="mx-auto shadow px-5 mb-3 text-2xl hover:scale-105 font-bold hover:text-light-three rounded-md transition-all bg-light-three hover:bg-light-five text-light-five flex items-center dark:text-dark-four dark:bg-dark-two">CHECK FOR NEW POSTS</button>}
-      <div className="grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 px-2">
+      }} className="mx-auto shadow px-5 mb-3 text-2xl hover:scale-105 font-bold hover:text-light-three rounded-md transition-all bg-light-three hover:bg-light-five text-light-five flex items-center dark:text-dark-four dark:bg-dark-two dark:border-2 dark:border-dark-three dark:hover:bg-dark-four dark:hover:text-dark-two">CHECK FOR NEW POSTS</button>}
+      <div className="grid lg:grid-cols-4 gap-y-2 md:gap-2 md:grid-cols-3 grid-cols-2 lg:p-0 md:px-2">
         {(posts.length !== 0) && posts.map((post) =>
           <Post key={post.id} post={post} backTo="home" />
         )}

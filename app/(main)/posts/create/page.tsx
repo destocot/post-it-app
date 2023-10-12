@@ -21,8 +21,8 @@ export default async function CreatePostPage() {
 
   return (
     <main>
-      <h1 className="mt-8 uppercase text-3xl mb-4 px-2 py-1 -skew-x-6 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50  font-bold w-fit mx-auto">create a new stick-it!</h1>
-      <form id="create-post-form" action={createPost} className="w-3/4 md:w-1/2 aspect-square mx-auto bg-purple-one text-black flex flex-col border border-light-four dark:border-dark-four">
+      <h1 className="mt-12 md:mt-8 uppercase text-3xl mb-4 px-2 py-1 -skew-x-6 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50  font-bold w-fit mx-auto">create a new stick-it!</h1>
+      <form id="create-post-form" action={createPost} className="w-[90vw] md:w-1/2 aspect-square mx-auto bg-purple-one text-black flex flex-col border border-light-four dark:border-dark-four">
         <input
           id="create-post-title"
           className="w-full block outline-none bg-purple-two text-white p-4"

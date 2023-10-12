@@ -1,12 +1,11 @@
 import { cookies } from 'next/headers'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import SelectColor from '../../create/SelectColor';
 import SubmitButton from '../../create/SubmitButton';
 import { updatePost } from '@/utils/actions';
 import { BiArrowBack } from 'react-icons/bi';
 import Link from 'next/link';
-import toast, { Toaster } from 'react-hot-toast';
 
 const getPost = async (postId: string) => {
   const supabase = createServerComponentClient({ cookies });
@@ -19,6 +18,11 @@ const getPost = async (postId: string) => {
 
   if (error) {
     notFound();
+  }
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user === null || user.id !== post.user_id) {
+    redirect(`/posts/${postId}`)
   }
 
   return post;
@@ -53,7 +57,7 @@ export default async function EditPost({ params }: { params: { id: string } }) {
         />
         <textarea
           id="create-post-content"
-          className="w-full block outline-none bg-purple-one flex-1 p-4"
+          className="w-full block outline-none h-[50vh] bg-purple-one p-4"
           name="content"
           required
           defaultValue={post.content}
