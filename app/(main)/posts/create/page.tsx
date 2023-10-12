@@ -8,7 +8,6 @@ import SubmitButton from './SubmitButton'
 export default async function CreatePostPage() {
   const supabase = createServerComponentClient({ cookies })
   const { data: { session } } = await supabase.auth.getSession()
-
   if (!session) {
     redirect('/landing')
   }
@@ -18,6 +17,7 @@ export default async function CreatePostPage() {
     .select()
     .eq("id", userId)
     .single();
+
 
   return (
     <main>

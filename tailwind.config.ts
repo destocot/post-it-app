@@ -18,6 +18,8 @@ const config: Config = {
       backgroundImage: {
         "profile-banner":
           "url('https://images.unsplash.com/photo-1586892478377-bb79da0a70c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')",
+        "default-profile":
+          "url('https://images.unsplash.com/photo-1544502062-f82887f03d1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&ar=1:1&fit=crop&w=175&q=80')",
       },
       colors: {
         "light-one": "#fafafa",

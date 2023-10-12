@@ -10,7 +10,6 @@ import { PinnedPosts, ProfilePostList } from "../../ProfilePostList";
 const getUserInfo = async (username: string) => {
   const supabase = createServerComponentClient<Database>({ cookies });
 
-  username = username.replaceAll("%20", " ");
   const { data: user, error } = await supabase
     .from("profiles")
     .select()

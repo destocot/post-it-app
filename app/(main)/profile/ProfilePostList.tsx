@@ -29,9 +29,9 @@ export async function ProfilePostList({ userId }: { userId: string }) {
         Your posts
       </h1>
       <div className={`grid lg:grid-cols-4 gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-0 max-h-1/2 ${shadow ? "overflow-y-scroll no-scrollbar" : ""} px-2`}>
-        {(posts) && posts.map((post) =>
+        {(posts && !!posts.length) ? posts.map((post) =>
           <Post key={post.id} post={post} backTo="profile" />
-        )}
+        ) : <h1 className="col-span-4 mx-auto">no posts yet, click new post to make your first!</h1>}
         {(!posts) && <Loading />}
         {(shadow) && <div className="hidden md:block col-span-4 py-24"></div>}
       </div>

@@ -35,7 +35,7 @@ export default function SignupPage() {
 
     // signup user
     const { email, password, name } = signupData;
-    const avatar_url = (secure_url) ? secure_url : `https://ui-avatars.com/api/?size=200&name=${name}`;
+    const avatar_url = (secure_url) ? secure_url : `https://ui-avatars.com/api/?size=500&name=${name}`;
 
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -48,7 +48,7 @@ export default function SignupPage() {
         }
       },
     })
-    console.log(data, error);
+    // console.log(data, error);
     if (error) {
       handleImageDeletion(delete_token);
       toast.error(error.message);

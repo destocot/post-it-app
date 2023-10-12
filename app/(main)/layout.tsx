@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Database } from "@/types/database.types"
 import ThemeButton from "@/components/ThemeButton"
+import LoginPage from "../(auth)/login/page"
 
 export default async function AuthLayout({
   children,
@@ -25,12 +26,17 @@ export default async function AuthLayout({
     .eq("id", userId)
     .single();
 
+  if (error) {
+    await supabase.auth.signOut();
+  }
+
   let display = null;
   let avatar = null;
   if (user) {
     display = user.name;
     avatar = user.avatar_url;
   }
+
 
   return (
     <>

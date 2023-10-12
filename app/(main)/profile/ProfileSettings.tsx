@@ -57,6 +57,11 @@ export default function ProfileSettings({ display }: { display: string | null })
         .select()
         .single();
 
+      if (error) {
+        console.log("error updating profile, please try again!");
+        return toast.error(error.message);
+      }
+
       if (data) {
         router.refresh();
         setSettings(false);
@@ -73,7 +78,9 @@ export default function ProfileSettings({ display }: { display: string | null })
 
   return (
     <>
-      <Toaster />
+      <div className="text-base">
+        <Toaster />
+      </div>
       <button onClick={() => setSettings(true)}>
         <FiSettings />
       </button>

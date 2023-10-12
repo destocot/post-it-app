@@ -20,7 +20,7 @@ export default async function Navbar({ display, avatar }: { display: string | nu
           <Hamburger />
           <div className="flex gap-2 items-end">
             {display && <h2 className="whitespace-nowrap font-bold flex gap-2 items-center"><Image src={`${avatar}`} alt=""
-              width={25} height={25} className="max-w-[25px] aspect-square border-2 object-cover rounded-full border-light-five dark:border-dark-five" />Welcome, {display}</h2>}
+              width={25} height={25} className="bg-default-profile max-w-[25px] aspect-square border-2 object-cover rounded-full border-light-five dark:border-dark-five" />Welcome, {display}</h2>}
             <LogoutButton />
           </div>
         </nav>

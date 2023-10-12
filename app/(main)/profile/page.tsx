@@ -39,8 +39,8 @@ export default async function ProfilePage() {
   return (
     <main>
       <div className="flex flex-wrap gap-5 mt-6 items-end p-2 bg-profile-banner">
-        <Image src={`${avatar}`} alt=""
-          width={200} height={200} className="max-w-[175px] mx-2 my-1 aspect-square shadow-md border-2 object-cover rounded-full border-light-five dark:border-dark-five" />
+        <Image src={`${avatar}`} alt="dd"
+          width={250} height={250} className="bg-default-profile max-w-[175px] mx-2 my-1 aspect-square shadow-md border-2 object-cover rounded-full border-light-five dark:border-dark-five" />
         <h1 className="uppercase text-2xl px-2 py-1 border-2 border-light-four bg-light-three/50 dark:border-dark-four dark:bg-dark-five/50 font-bold w-fit">
           {display}&apos;s profile
         </h1>

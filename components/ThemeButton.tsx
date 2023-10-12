@@ -20,11 +20,11 @@ export default function ThemeButton() {
           .eq("id", userId)
           .single();
 
-        if (error) {
-          throw new Error(error.message);
-        }
+        // if (error) {
+        //   throw new Error(error.message);
+        // }
 
-        if (data.dark_mode) {
+        if (data && data.dark_mode) {
           document.documentElement.classList.add("dark");
           setDarkmode(true);
         } else {
