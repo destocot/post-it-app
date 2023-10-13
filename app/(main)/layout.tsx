@@ -40,14 +40,16 @@ export default async function AuthLayout({
 
   return (
     <>
-      <ThemeButton />
       <Navbar display={display} avatar={avatar} />
       {children}
-      <footer className="flex justify-center items-center py-8 mt-8 mb-4">
-        <p>
-          Khurram Ali - Stick-It! - &copy; 2023
-        </p>
+      <footer className="bg-light-three text-black dark:bg-dark-one dark:text-dark-four py-4 mt-4">
+        <div className="container mx-auto flex justify-center items-center">
+          <p className="text-sm">
+            &copy; 2023 Stick-It! | Khurram Ali
+          </p>
+        </div>
       </footer>
+
     </>
   )
 }
