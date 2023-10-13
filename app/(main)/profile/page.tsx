@@ -1,13 +1,13 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
-import { Database } from "@/types/database.types";
 import ProfileSettings from "./ProfileSettings";
 import Image from "next/image";
 import { FaRegPlusSquare, FaRegStickyNote } from "react-icons/fa";
 import { ProfilePostList, PinnedPosts } from "./ProfilePostList";
 import Link from "next/link";
 import { Metadata } from "next";
+import { Database } from "@/app/types/database.types";
 
 export const metadata: Metadata = {
   title: 'Stick-It! | Profile',

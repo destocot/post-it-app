@@ -1,9 +1,8 @@
 import Post from '@/components/Post';
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from "@/types/database.types";
 import Loading from '@/components/Loading';
-import Link from 'next/link';
+import { Database } from '@/app/types/database.types';
 
 const getUnpinnedPosts = async (userId: string) => {
   const supabase = createServerComponentClient<Database>({ cookies });

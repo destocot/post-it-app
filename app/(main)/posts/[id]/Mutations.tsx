@@ -1,11 +1,11 @@
 "use client"
-import { PostType } from '@/types/types';
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { BiTrashAlt, BiEdit, BiArrowBack } from "react-icons/bi";
 import DeletePost from './DeletePost';
 import UpdatePost from './UpdatePost';
+import { PostType } from '@/app/types/types';
 
 export default function Mutations({ post, userId }: { post: PostType, userId: string }) {
   const router = useRouter();

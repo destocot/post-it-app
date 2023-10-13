@@ -1,9 +1,9 @@
 "use client"
+import { Database } from '@/app/types/database.types';
+import { PostType } from '@/app/types/types';
 import Post from '@/components/Post';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import { Database } from "@/types/database.types";
 import { useEffect, useState } from "react";
-import { PostType } from "@/types/types";
 
 export default function SearchPostList({ query }: { query: string }) {
   const [posts, setPosts] = useState<PostType[]>([]);

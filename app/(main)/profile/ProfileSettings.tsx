@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { FiSettings } from "react-icons/fi";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "@/types/database.types"
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
+import { Database } from "@/app/types/database.types";
 
 export default function ProfileSettings({ display }: { display: string | null }) {
   const [settings, setSettings] = useState(false);

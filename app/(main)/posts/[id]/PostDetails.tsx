@@ -1,4 +1,5 @@
-import { PostType } from "@/types/types";
+
+import { PostType } from "@/app/types/types";
 import Link from "next/link";
 import { BiLock } from "react-icons/bi";
 

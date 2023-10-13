@@ -1,6 +1,7 @@
-import { PostType } from "@/types/types";
+
 import { BiLock } from "react-icons/bi";
 import Link from "next/link";
+import { PostType } from "@/app/types/types";
 
 export default function Post({ post, backTo }: { post: PostType, backTo: string }) {
   const postColors = getPostColors(post.color);

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { BiSun, BiSolidMoon } from "react-icons/bi";
-import { Database } from "@/types/database.types";
+import { Database } from "@/app/types/database.types";
 
 export default function ThemeButton() {
   const [darkmode, setDarkmode] = useState(false);

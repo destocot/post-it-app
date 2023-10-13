@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import ThemeButton from "@/components/ThemeButton";
-import { Database } from "@/types/database.types";
+import { Database } from "../types/database.types";
 export default async function AuthLayout({
   children,
 }: {

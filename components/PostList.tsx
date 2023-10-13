@@ -1,10 +1,10 @@
 "use client"
 import Post from "./Post";
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import { Database } from "@/types/database.types";
 import { useEffect, useState } from "react";
-import { PostType } from "@/types/types";
 import Loading from "./Loading";
+import { PostType } from "@/app/types/types";
+import { Database } from "@/app/types/database.types";
 
 
 export default function PostList() {

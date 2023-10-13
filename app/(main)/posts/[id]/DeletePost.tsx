@@ -1,8 +1,8 @@
 "use client"
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "@/types/database.types"
 import { Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/navigation";
+import { Database } from "@/app/types/database.types";
 
 export default function DeletePost({ setDeleteConfirmation, postId, returnRoute }: { setDeleteConfirmation: Dispatch<SetStateAction<boolean>>, postId: string, returnRoute: string }) {
   const router = useRouter();
