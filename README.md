@@ -1,38 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center" id="title">Stick-It!</h1>
 
-## Getting Started
+<p align="center"><img src="https://socialify.git.ci/destocot/stick-it/image?language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;theme=Light" alt="project-image"></p>
 
-First, run the development server:
+<p id="description">Welcome to Stick-It: the user-friendly app that turns your digital canvas into a creative corkboard. Easily capture thoughts ideas and reminders with charming sticky notes. Customize colors fonts and sizes and simplify your digital note-taking. Start sticking your thoughts today!</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<p align="center"><img src="	https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&amp;logo=typescript&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&amp;logo=tailwind-css&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/Next-black?style=for-the-badge&amp;logo=next.js&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&amp;logo=supabase&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&amp;logo=postgresql&amp;logoColor=white" alt="shields"></p>
+
+<h2>🚀 Demo</h2>
+
+[https://www.comingsoon.com/stick-it](https://www.comingsoon.com/stick-it)
+
+<h2>Project Screenshots:</h2>
+
+<img src="" alt="project-screenshot" width="400" height="400/">
+
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+- Authentication: Sign in seamlessly with local accounts or through Google OAuth.
+- Enhanced Security: We implement robust row-level security using PostgreSQL and Supabase to safeguard your data.
+- Customizable User Themes: Tailor your experience by saving user themes to match your preferences.
+- Real-time Updates: Stay engaged with live post updates making your experience dynamic and interactive.
+- Personal Profiles: Create and showcase your personality and interests with personal profiles.
+- User-Friendly Profile Management: Easily update your username and avatar to keep your profile information up-to-date.
+- Mobile-Responsive Design: Our app is designed to be mobile-responsive ensuring a smooth experience across various devices.
+- Custom colored posts full user control with editing pinning and deleting capabilities.
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Clone repository</p>
+
+```
+https://github.com/destocot/stick-it.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>2. Install dependencies</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<p>3. Create .env.local file in the root of your directory</p>
 
-## Learn More
+```
+touch .env.local
+```
 
-To learn more about Next.js, take a look at the following resources:
+<p>4. Signup and create a supabase project</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+https://supabase.com/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<p>5. Put your SUPABASE_URL in your .env.local file</p>
 
-## Deploy on Vercel
+```
+NEXT_PUBLIC_SUPABASE_URL="FILL_ME"
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p>6. Put your SUPABASE_ANON_KEY in your .env.local file</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+NEXT_PUBLIC_SUPABASE_ANON_KEY="FILL_ME"
+```
 
-# stick-it-app
+<p>7. Create a cloudinary account</p>
+
+```
+https://cloudinary.com/
+```
+
+<p>8. Create a google project for OAUTH</p>
+
+```
+https://console.cloud.google.com/
+```

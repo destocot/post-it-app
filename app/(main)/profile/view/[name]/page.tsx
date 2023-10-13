@@ -6,9 +6,15 @@ import Image from "next/image";
 import { FaRegStickyNote } from "react-icons/fa";
 import ProfileSettings from "../../ProfileSettings";
 import { PinnedPosts, ProfilePostList } from "../../ProfilePostList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | View Profile',
+}
 
 const getUserInfo = async (username: string) => {
   const supabase = createServerComponentClient<Database>({ cookies });
+  username = username.toLowerCase();
 
   const { data: user, error } = await supabase
     .from("profiles")

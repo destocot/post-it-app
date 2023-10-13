@@ -3,6 +3,11 @@ import LandingVisual from "@/components/LandingVisual";
 import GoogleLogin from "./GoogleLogin";
 import { Suspense } from "react";
 import Loading from "@/components/Loading";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | Landing',
+}
 
 const greetings = [
   'Hello World',         // English

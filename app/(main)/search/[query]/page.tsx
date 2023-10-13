@@ -1,5 +1,10 @@
 import SearchForm from "@/components/SearchForm";
 import SearchPostList from "./SearchPostList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | Search Posts',
+}
 
 export default function SearchPage({ params }: { params: { query: string } }) {
   return (

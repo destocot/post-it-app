@@ -4,6 +4,11 @@ import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import Link from "next/link"
 import { FaRegStickyNote } from 'react-icons/fa'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | Account',
+}
 
 export default async function AuthLayout({
   children,

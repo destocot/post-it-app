@@ -35,7 +35,9 @@ export default function SignupPage() {
     const { secure_url, delete_token } = await handleImageUpload();
 
     // signup user
-    const { email, password, name } = signupData;
+    let { email, password, name } = signupData;
+    name = name.toLowerCase();
+
     const avatar_url = (secure_url) ? secure_url : `https://ui-avatars.com/api/?size=500&name=${name}`;
 
     const { data, error } = await supabase.auth.signUp({

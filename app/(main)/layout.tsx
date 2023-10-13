@@ -4,7 +4,6 @@ import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Database } from "@/types/database.types"
 import ThemeButton from "@/components/ThemeButton"
-
 export default async function AuthLayout({
   children,
 }: {
@@ -40,6 +39,7 @@ export default async function AuthLayout({
 
   return (
     <>
+      <ThemeButton />
       <Navbar display={display} avatar={avatar} />
       {children}
       <footer className="bg-light-three text-black dark:bg-dark-one dark:text-dark-four py-4 mt-4">

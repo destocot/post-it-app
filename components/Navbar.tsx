@@ -3,13 +3,11 @@ import LogoutButton from "./LogoutButton";
 import { FaHome, FaRegStickyNote, FaHouseUser, FaRegPlusSquare } from "react-icons/fa";
 import Image from "next/image";
 import Hamburger from "./Hamburger";
-import ThemeButton from "./ThemeButton";
 
 export default async function Navbar({ display, avatar }: { display: string | null, avatar: string | null }) {
   return (
     <>
       <header>
-        <ThemeButton />
         <nav className="flex flex-wrap justify-between items-end border-b pb-1 text-lg px-2">
           <Link href="/">
             <h1 className="uppercase text-5xl -skew-x-6 font-semibold w-fit mx-auto flex items-center gap-2">stick-it! <FaRegStickyNote /></h1>

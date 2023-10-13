@@ -3,6 +3,11 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { notFound, redirect } from 'next/navigation';
 import Mutations from './Mutations';
 import PostDetails from './PostDetails';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | Post Details',
+}
 
 const getPost = async (postId: string) => {
   const supabase = createServerComponentClient({ cookies });

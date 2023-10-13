@@ -4,6 +4,11 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { createPost } from '@/utils/actions'
 import SelectColor from './SelectColor'
 import SubmitButton from './SubmitButton'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | Create Post',
+}
 
 export default async function CreatePostPage() {
   const supabase = createServerComponentClient({ cookies })

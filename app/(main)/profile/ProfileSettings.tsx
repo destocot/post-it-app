@@ -43,9 +43,9 @@ export default function ProfileSettings({ display }: { display: string | null })
 
       let options = {};
       if (name && avatar_url) {
-        options = { name, avatar_url }
+        options = { name: name.toLowerCase(), avatar_url }
       } else if (name) {
-        options = { name }
+        options = { name: name.toLowerCase() }
       } else if (avatar_url) {
         options = { avatar_url }
       }
@@ -58,7 +58,9 @@ export default function ProfileSettings({ display }: { display: string | null })
         .single();
 
       if (error) {
-        console.log("error updating profile, please try again!");
+        if (error.code === "23505") {
+          return toast.error("username is already taken");
+        }
         return toast.error(error.message);
       }
 

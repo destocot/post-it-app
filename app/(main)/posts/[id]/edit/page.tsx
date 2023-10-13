@@ -6,6 +6,11 @@ import SubmitButton from '../../create/SubmitButton';
 import { updatePost } from '@/utils/actions';
 import { BiArrowBack } from 'react-icons/bi';
 import Link from 'next/link';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | Edit Post',
+}
 
 const getPost = async (postId: string) => {
   const supabase = createServerComponentClient({ cookies });

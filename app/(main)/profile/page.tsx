@@ -7,6 +7,11 @@ import Image from "next/image";
 import { FaRegPlusSquare, FaRegStickyNote } from "react-icons/fa";
 import { ProfilePostList, PinnedPosts } from "./ProfilePostList";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | Profile',
+}
 
 export default async function ProfilePage() {
   const supabase = createServerComponentClient<Database>({ cookies });

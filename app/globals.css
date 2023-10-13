@@ -93,9 +93,21 @@ header {
   }
 }
 
+.dark header {
+  @media (max-width: 480px) {
+    background-color: #161722;
+  }
+}
+
 nav {
   @media (max-width: 480px) {
     background-color: #fafafa;
+  }
+}
+
+.dark nav {
+  @media (max-width: 480px) {
+    background-color: #161722;
   }
 }
 

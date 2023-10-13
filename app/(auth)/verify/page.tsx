@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Stick-It! | Verify Your Email',
+}
+
 export default function VerifyPage() {
   return (
     <main className="flex justify-center items-center h-screen my-0">
