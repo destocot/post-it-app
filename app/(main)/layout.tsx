@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar"
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { Database } from "@/types/database.types"
+import { Database } from "../../types/database.types"
 import ThemeButton from "@/components/ThemeButton"
 export default async function AuthLayout({
   children,
