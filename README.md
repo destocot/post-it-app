@@ -33,7 +33,7 @@ Here're some of the project's best features:
 - Personal Profiles: Create and showcase your personality and interests with personal profiles.
 - User-Friendly Profile Management: Easily update your username and avatar to keep your profile information up-to-date.
 - Mobile-Responsive Design: Our app is designed to be mobile-responsive ensuring a smooth experience across various devices.
-- Custom colored posts full user control with editing pinning and deleting capabilities.
+- Custom colored posts with editing, pinning, and deleting capabilities.
 
 <h2>🛠️ Installation Steps:</h2>
 
