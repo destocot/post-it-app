@@ -12,6 +12,7 @@
 
 <h2>Project Screenshots:</h2>
 
+<h3>Mobile</h3>
 <p float="left">
 <img src="https://i.imgur.com/rbSpURZ.png" alt="project-screenshot" width="160" height="auto" />
 <img src="https://i.imgur.com/dMMJjPn.png" alt="project-screenshot" width="160" height="auto" />
