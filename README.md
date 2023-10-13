@@ -12,12 +12,12 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.imgur.com/rbSpURZ.png" alt="project-screenshot" width="160" height="auto"  style="float:left">
-<img src="https://i.imgur.com/dMMJjPn.png" alt="project-screenshot" width="160" height="auto"  style="float:left">
-<img src="https://i.imgur.com/mOXdmkb.png" alt="project-screenshot" width="160" height="auto"  style="float:left">
-<img src="https://i.imgur.com/0Xf707U.png" alt="project-screenshot" width="160" height="auto  style="float:left"">
-<img src="https://i.imgur.com/J7RFizW.png" alt="project-screenshot" width="160" height="auto"  style="float:left">
-<img src="https://i.imgur.com/HEOznup.png" alt="project-screenshot" width="160" height="auto"  style="float:left">
+<img src="https://i.imgur.com/rbSpURZ.png" alt="project-screenshot" width="160" height="auto"  style="float:left" />
+<img src="https://i.imgur.com/dMMJjPn.png" alt="project-screenshot" width="160" height="auto"  style="float:left" />
+<img src="https://i.imgur.com/mOXdmkb.png" alt="project-screenshot" width="160" height="auto"  style="float:left" />
+<img src="https://i.imgur.com/0Xf707U.png" alt="project-screenshot" width="160" height="auto"  style="float:left" />
+<img src="https://i.imgur.com/J7RFizW.png" alt="project-screenshot" width="160" height="auto"  style="float:left" />
+<img src="https://i.imgur.com/HEOznup.png" alt="project-screenshot" width="160" height="auto"  style="float:left" />
 
 <h2>🧐 Features</h2>
 
