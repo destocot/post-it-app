@@ -51,26 +51,27 @@ export default async function EditPost({ params }: { params: { id: string } }) {
         </h1>
         <Link href={`/posts/${post.id}`} className="mx-auto shadow my-2 py-2 px-8 hover:scale-110 font-bold hover:text-light-three rounded-md transition-all bg-light-three hover:bg-light-five text-light-five dark:bg-dark-two dark:text-dark-three dark:hover:text-dark-two dark:hover:bg-dark-three border"><BiArrowBack className="text-3xl" /></Link>
       </div>
-      <form id="create-post-form" action={updatePost} className="text-lg w-5/6 mx-auto bg-purple-one text-black flex flex-col border border-light-four dark:border-dark-four">
+      <form id="create-post-form" action={updatePost} className="text-lg w-full mx-auto bg-purple-one text-black flex flex-col border border-light-four dark:border-dark-four">
         <input type="hidden" name="postId" value={post.id} />
         <input
           id="create-post-title"
-          className="w-full block outline-none bg-purple-two text-white p-4"
+          className="w-full block outline-none bg-purple-two font-semibold p-4"
           type="text"
           name="title"
           defaultValue={post.title}
         />
         <textarea
           id="create-post-content"
-          className="w-full block outline-none h-[50vh] bg-purple-one p-4"
+          className="w-full block outline-none bg-purple-one p-4"
           name="content"
           required
           defaultValue={post.content}
+          rows={Math.ceil(post.content.length / 100)}
         >
         </textarea>
         <div className="flex flex-wrap items-center gap-2 px-4 py-3">
           <p className="font-bold">- {display}</p>
-          <label className="flex items-center gap-2">Private?<input type="checkbox" name="private" value="true" defaultChecked={(post.private) ? true : false} /></label>
+          <label className="flex items-center gap-2">Private?<input type="checkbox" className="cursor-pointer scale-125 hover:scale-150" name="private" value="true" defaultChecked={(post.private) ? true : false} /></label>
           <SelectColor color={post.color} />
           <SubmitButton />
         </div>

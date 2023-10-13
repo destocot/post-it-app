@@ -57,7 +57,7 @@ export default function SelectColor({ color }: { color?: string }) {
 
   return (
     <label className="flex items-center gap-2">Color?
-      <select id="form-select" name="color" onChange={(e) => changeHandler(e)}>
+      <select id="form-select" className="border-2 border-dark-one rounded-sm cursor-pointer" name="color" onChange={(e) => changeHandler(e)}>
         <option value="purple">Purple</option>
         <option value="blue">Blue</option>
         <option value="green">Green</option>

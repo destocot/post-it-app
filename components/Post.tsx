@@ -14,15 +14,15 @@ export default function Post({ post, backTo }: { post: PostType, backTo: string 
   }
 
   return (
-    <Link className={`hover:rotate-1 shadow-lg cursor-pointer m-1 aspect-square ${baseBackgroundColor} text-black rounded-sm fold ${foldBorderColor} w-5/6 xxl:w-full mx-auto`} href={{ pathname: `/posts/${post.id}`, query: { return: backTo } }}>
+    <Link className={`hover:rotate-1 shadow-lg cursor-pointer m-1 aspect-square ${baseBackgroundColor} text-black rounded-sm fold ${foldBorderColor} w-[95%] md:w-5/6 xxl:w-full mx-auto`} href={{ pathname: `/posts/${post.id}`, query: { return: backTo } }}>
       <div className="flex flex-col h-full" >
-        <div className={`flex ${titleBackgroundColor} text-light-one p-2`}>
+        <div className={`flex ${titleBackgroundColor} p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)]`}>
           <p className="font-semibold whitespace-nowrap truncate">{post.title}</p>
           <span className="ml-auto flex items-center text-lg">{(post.private) && <BiLock />}</span>
         </div>
-        <p className="whitespace-pre-wrap text-xs md:text-base overflow-hidden text-ellipsis py-1 px-2">{(post.content.length < 120) ? post.content : post.content.slice(0, 120) + "..."}</p>
+        <p className="whitespace-pre-wrap text-xs md:text-base overflow-hidden text-ellipsis py-1 px-2">{(post.content.length < 140) ? post.content : post.content.slice(0, 140) + "..."}</p>
         <div className="mt-auto flex gap-1 text-sm px-2">
-          <p className="font-semibold">- {display}</p>
+          <p className="font-semibold whitespace-nowrap">- {display}</p>
           <p>{new Date(post.created_at).toLocaleDateString('en-US', { month: '2-digit', day: 'numeric', year: '2-digit' })}</p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { PostType } from "@/types/types";
 import Link from "next/link";
+import { BiLock } from "react-icons/bi";
 
 export default function PostDetails({ post }: { post: PostType }) {
   const postColors = getPostColors(post.color);
@@ -12,22 +13,25 @@ export default function PostDetails({ post }: { post: PostType }) {
   }
 
   return (
-    <form id="create-post-form" className={`text-lg w-5/6 aspect-square md:aspect-auto mx-auto text-black flex flex-col border border-light-four dark:border-dark-four ${baseBackgroundColor}`}>
-      <input
-        id="create-post-title"
-        className={`w-full block outline-none  p-4 ${titleBackgroundColor} text-light-one`}
-        type="text"
-        defaultValue={post.title || ""}
-        disabled
-      />
+    <form id="create-post-form" className={`text-lg w-full aspect-video md:aspect-auto mx-auto text-black flex flex-col shadow-lg ${baseBackgroundColor}`}>
+      <div className={`flex ${titleBackgroundColor} drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)]`}>
+        <input
+          id="create-post-title"
+          className={`w-full block outline-none font-semibold p-4 ${titleBackgroundColor}`}
+          type="text"
+          defaultValue={post.title || ""}
+          disabled
+        />
+        <span className="ml-auto px-2 flex items-center">{(post.private) && <BiLock className="text-2xl" />}</span>
+      </div>
       <div
         id="create-post-content"
-        className={`whitespace-pre-wrap overflow-auto h-5/6 md:aspect-auto aspect-square block outline-none p-4 ${baseBackgroundColor}`}
+        className={`whitespace-pre-wrap overflow-auto block outline-none p-4 ${baseBackgroundColor}`}
         defaultValue={post.content}
       >{post.content}
       </div>
       <div className="flex items-center gap-2 px-4 py-4">
-        <Link href={`/profile/view/${display}`} className="font-semibold hover:underline underline-offset-4">- {display}</Link>
+        <Link href={`/profile/view/${display}`} className="font-semibold whitespace-nowrap hover:underline underline-offset-4">- {display}</Link>
         <p>{new Date(post.created_at).toLocaleDateString('en-US', { month: '2-digit', day: 'numeric', year: '2-digit' })}</p>
       </div>
     </form >

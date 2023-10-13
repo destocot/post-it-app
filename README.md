@@ -12,6 +12,28 @@
 
 <h2>Project Screenshots:</h2>
 
+<p align="center">
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2t3YTJ5c2lpenZrMmtwMzZscGk3aHJuZ3NnZ2IzMzQzN3IxNDYycCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mLIns779aAZ0ERoUhI/giphy.gif" alt="project-screenshot" width="350" height="auto">
+</p>
+<p align="center">
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2xzNWhreG1nYWZ4dnE1YmowajJzYWE4M3p6MTJzN3FiNDE4cWhzOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OahLRxXArREydGQvo0/giphy.gif" alt="project-screenshot" width="350" height="auto">
+</p>
+<p align="center">
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzR4bmNmam5kcWp4MnhiMXh1ZzM1cnJmaDQ4YTAzZmVncTF1MjYwdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vUDhY4JOkRrV0jubbC/giphy.gif" alt="project-screenshot" width="350" height="auto">
+</p>
+<p align="center">
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnZrN3YweXE4dzF4NDYzNHIxcnM2YjBsdDZ2d20ycGs4M3g0dmk5diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L242D05o0Erthu4oWD/giphy.gif" alt="project-screenshot" width="350" height="auto">
+</p>
+<p align="center">
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnpiNDd0azljanN2MjN1YnJrb21tMXM0cnJjZmxtazF1MWxvMHFmOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DMnmQRMWMYqiPqvOJe/giphy.gif" alt="project-screenshot" width="350" height="auto">
+</p>
+<p align="center">
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXVtYnJzMHB5eDhtam84bTExMXg4b3prMmZmMXZ6c3c0bGYzdW9wMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T0OnoNJxRdBbRqmgkf/giphy.gif" alt="project-screenshot" width="350" height="auto">
+ </p>
+<p align="center">
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGhlbW9wNjdjczB3Y2cwcGZiaHE3Mmd2aDkzZm40dXZmcHVuMW9lNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/N4NMtAHn2eJw1MgZly/giphy.gif" alt="project-screenshot" width="350" height="auto
+"></p>
+
 <h3>Mobile</h3>
 <p float="left">
 <img src="https://i.imgur.com/rbSpURZ.png" alt="project-screenshot" width="160" height="auto" />

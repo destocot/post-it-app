@@ -30,14 +30,14 @@ export default async function CreatePostPage() {
       <form id="create-post-form" action={createPost} className="w-[90vw] md:w-1/2 aspect-square mx-auto bg-purple-one text-black flex flex-col border border-light-four dark:border-dark-four">
         <input
           id="create-post-title"
-          className="w-full block outline-none bg-purple-two text-white p-4"
+          className="w-full block outline-none bg-purple-two text-dark-one p-4 placeholder:text-dark-one/50"
           type="text"
           name="title"
           placeholder="Title (optional)"
         />
         <textarea
           id="create-post-content"
-          className="w-full block outline-none bg-purple-one flex-1 p-4"
+          className="w-full block outline-none bg-purple-one text-dark-one flex-1 p-4 placeholder:text-dark-one/50"
           name="content"
           placeholder="Post"
           required
@@ -45,7 +45,7 @@ export default async function CreatePostPage() {
         </textarea>
         <div className="flex flex-wrap items-center gap-2 px-4 py-3">
           <p className="font-bold">- {name}</p>
-          <label className="flex items-center gap-2">Private?<input type="checkbox" name="private" value="true" /></label>
+          <label className="flex items-center gap-2">Private?<input type="checkbox" className="scale-125 hover:scale-150 cursor-pointer" name="private" value="true" /></label>
           <SelectColor color="purple" />
           <SubmitButton />
         </div>
