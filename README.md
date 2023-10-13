@@ -5,6 +5,7 @@
 <p id="description">Welcome to Stick-It: the user-friendly app that turns your digital canvas into a creative corkboard. Easily capture thoughts ideas and reminders with charming sticky notes. Customize colors fonts and sizes and simplify your digital note-taking. Start sticking your thoughts today!</p>
 
 <p align="center"><img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="shields" /><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&amp;logo=tailwind-css&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/Next-black?style=for-the-badge&amp;logo=next.js&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&amp;logo=supabase&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&amp;logo=postgresql&amp;logoColor=white" alt="shields"></p>
+<p align="center"><img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="shields" /><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&amp;logo=tailwind-css&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/Next-black?style=for-the-badge&amp;logo=next.js&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&amp;logo=supabase&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&amp;logo=postgresql&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white" alt="shields"></p>
 
 <h2>🚀 Demo</h2>
 
@@ -48,14 +49,15 @@
 
 Here're some of the project's best features:
 
-- Authentication: Sign in seamlessly with local accounts or through Google OAuth.
-- Enhanced Security: We implement robust row-level security using PostgreSQL and Supabase to safeguard your data.
-- Customizable User Themes: Tailor your experience by saving user themes to match your preferences.
-- Real-time Updates: Stay engaged with live post updates making your experience dynamic and interactive.
-- Personal Profiles: Create and showcase your personality and interests with personal profiles.
-- User-Friendly Profile Management: Easily update your username and avatar to keep your profile information up-to-date.
-- Mobile-Responsive Design: Our app is designed to be mobile-responsive ensuring a smooth experience across various devices.
-- Custom colored posts with editing, pinning, and deleting capabilities.
+- Landing Page: Utilizes 3D models with threejs for an engaging introduction.
+- Authentication: Seamless sign-in through local accounts or Google OAuth.
+- Enhanced Security: Robust row-level security using PostgreSQL and Supabase.
+- Customizable User Themes: Tailor your experience with saved user themes.
+- Real-time Updates: Stay engaged with live post updates for dynamic interaction.
+- Personal Profiles: Create and showcase personality and interests.
+- User-Friendly Profile Management: Easily update username and avatar.
+- Mobile-Responsive Design: Ensures a smooth experience on various devices.
+- Expressive Posts: Create colorful, personalized posts with privacy controls.
 
 <h2>🛠️ Installation Steps:</h2>
 
