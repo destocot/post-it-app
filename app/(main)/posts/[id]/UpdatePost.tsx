@@ -1,4 +1,4 @@
-import { Database } from "@/types/database.types";
+import { Database } from "@/app/types/database.types";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
