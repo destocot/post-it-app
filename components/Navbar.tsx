@@ -8,7 +8,7 @@ export default async function Navbar({ display, avatar }: { display: string | nu
   return (
     <>
       <header>
-        <nav className="flex flex-wrap justify-between items-end md:border-b-2 pb-4 md:pb-2 text-lg px-2">
+        <nav className="flex flex-wrap justify-between items-end md:border-b-2 pb-4 md:pb-2 text-lg px-2 bg-light-one dark:bg-dark-one md:bg-transparent">
           <Link href="/">
             <h1 className="mb-1 uppercase text-5xl -skew-x-6 font-semibold w-fit mx-auto flex items-center gap-2">stick-it! <FaRegStickyNote /></h1>
           </Link>

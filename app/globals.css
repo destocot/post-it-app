@@ -100,18 +100,6 @@ header {
   }
 }
 
-nav {
-  @media (max-width: 480px) {
-    background-color: #fafafa;
-  }
-}
-
-.dark nav {
-  @media (max-width: 480px) {
-    background-color: #161722;
-  }
-}
-
 main {
   max-width: 64rem;
   margin: 0 auto;
