@@ -25,17 +25,25 @@ export default function PostList() {
         },
         (payload: { new: PostType }) => {
           if (page === 1) {
-            setPosts([payload.new, ...posts])
+            const getUsername = async (userId: string) => {
+              const { data: display } = await supabase.from("profiles").select("name").eq("id", userId).single();
+              const newPost = { ...payload.new, profiles: display }
+              setPosts([newPost, ...posts])
+            };
+            getUsername(payload.new.user_id);
           }
         }
       )
       .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    }
   }, [posts, page])
 
   useEffect(() => {
     const getPosts = async () => {
       const supabase = createClientComponentClient<Database>();
-
       const { data: posts } = await supabase
         .from("posts")
         .select('*, profiles (name)')
@@ -52,7 +60,7 @@ export default function PostList() {
     }
     getPosts();
   }, [page])
-  console.log(posts.length);
+
   return (
     <>
 
