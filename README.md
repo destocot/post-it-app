@@ -8,7 +8,7 @@
 
 <h2>🚀 Demo</h2>
 
-[https://www.comingsoon.com/stick-it](https://www.comingsoon.com/stick-it)
+[https://stick-it.vercel.app](https://stick-it.vercel.app)
 
 <h2>Project Screenshots:</h2>
 
